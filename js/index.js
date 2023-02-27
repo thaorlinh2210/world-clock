@@ -34,3 +34,24 @@ function updateTime() {
   );
 }
 setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updateCity);
+
+function updateCity(event) {
+  let cityTimezone = event.target.value;
+  let cityName = cityTimezone.replace("_", " ").split("/")[1]; //split the America/New York into an array and display the 1st element
+  console.log(cityTimezone);
+  let cityDate = moment().tz(cityTimezone);
+  console.log(cityDate.format("MMMM Do YYYY"));
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `<div class="city">
+          <div>
+            <h2>${cityName}</h2>
+            <div class="date">${cityDate.format("MMMM Do YYYY")}</div>
+          </div>
+          <div class="time">${cityDate.format(
+            "h:mm:ss"
+          )}<small>${cityDate.format("A")}</small></div>
+        </div>`;
+}
