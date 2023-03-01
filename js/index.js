@@ -1,6 +1,6 @@
 //Hanoi
 function updateTime() {
-  let hanoiElement = document.querySelector("#hanoi");
+  let hanoiElement = document.querySelector("#saigon");
   let hanoiDateElement = hanoiElement.querySelector(".date");
   let hanoiTimeElement = hanoiElement.querySelector(".time");
   let hanoiTime = moment().tz("Asia/Saigon");
