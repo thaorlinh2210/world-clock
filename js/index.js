@@ -40,6 +40,10 @@ citiesSelectElement.addEventListener("change", updateCity);
 
 function updateCity(event) {
   let cityTimezone = event.target.value;
+
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
+  }
   let cityName = cityTimezone.replace("_", " ").split("/")[1]; //split the America/New York into an array and display the 1st element
   console.log(cityTimezone);
   let cityDate = moment().tz(cityTimezone);
